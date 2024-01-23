@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="parking.css">
+    <title>Parking Lot</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .parking-lot {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0px;
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .section {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 50px;
+            background-color: #bbb;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .road {
+            width: 100%;
+            height: 15px;
+            background-color: #888;
+            grid-column: span 6;
+        }
+
+        .parking-space {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #333;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .parking-space.parked {
+            background-color: #ff9999; /* Color for parked slots */
+        }
+        
+        .entry-point::before,
+        .exit-point::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 10px;
+            height: 2px;
+            background-color: green; /* Green line for entry */
+            transform: translateY(-50%);
+        }
+
+        .exit-point::before {
+            background-color: red; /* Red line for exit */
+        }
+
+        .entry-point::before {
+            left: -10px;
+        }
+
+        .exit-point::before {
+            right: -10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Parking Lot</h1>
+
+    <div class="parking-lot" id="parkingLot">
+
+        <section>
+            <div class="section">
+                <div class="road"></div>
+                <div class="parking-space" onclick="toggleParking(this)">1</div>
+                <div class="parking-space" onclick="toggleParking(this)">2</div>
+                <div class="parking-space" onclick="toggleParking(this)">3</div>
+                <div class="parking-space" onclick="toggleParking(this)">4</div>
+                <div class="parking-space" onclick="toggleParking(this)">5</div>
+                <div class="parking-space" onclick="toggleParking(this)">6</div>
+                <div class="road"></div>
+            </div>
+            <div class="section">
+                <div class="road"></div>
+                <div class="parking-space" onclick="toggleParking(this)">7</div>
+                <div class="parking-space" onclick="toggleParking(this)">8</div>
+                <div class="parking-space" onclick="toggleParking(this)">9</div>
+                <div class="parking-space" onclick="toggleParking(this)">10</div>
+                <div class="parking-space" onclick="toggleParking(this)">11</div>
+                <div class="parking-space" onclick="toggleParking(this)">12</div>
+                <div class="road"></div>
+            </div>
+            <div class="section">
+                <div class="road"></div>
+                <div class="parking-space" onclick="toggleParking(this)">13</div>
+                <div class="parking-space" onclick="toggleParking(this)">14</div>
+                <div class="parking-space" onclick="toggleParking(this)">15</div>
+                <div class="parking-space" onclick="toggleParking(this)">16</div>
+                <div class="parking-space" onclick="toggleParking(this)">17</div>
+                <div class="parking-space" onclick="toggleParking(this)">18</div>
+                <div class="road"></div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section">
+                <div class="road"></div>
+                <div class="parking-space" onclick="toggleParking(this)">19</div>
+                <div class="parking-space" onclick="toggleParking(this)">20</div>
+                <div class="parking-space" onclick="toggleParking(this)">21</div>
+                <div class="parking-space" onclick="toggleParking(this)">22</div>
+                <div class="parking-space" onclick="toggleParking(this)">23</div>
+                <div class="parking-space" onclick="toggleParking(this)">24</div>
+                <div class="road"></div>
+            </div>
+            <div class="section">
+                <div class="road"></div>
+            <div class="parking-space" onclick="toggleParking(this)">25</div>
+            <div class="parking-space" onclick="toggleParking(this)">26</div>
+            <div class="parking-space" onclick="toggleParking(this)">27</div>
+            <div class="parking-space" onclick="toggleParking(this)">28</div>
+            <div class="parking-space" onclick="toggleParking(this)">29</div>
+            <div class="parking-space" onclick="toggleParking(this)">30</div>
+            <div class="road"></div>
+        </div>
+        <div class="section">
+            <div class="road"></div>
+            <div class="parking-space" onclick="toggleParking(this)">31</div>
+            <div class="parking-space" onclick="toggleParking(this)">32</div>
+            <div class="parking-space" onclick="toggleParking(this)">33</div>
+            <div class="parking-space" onclick="toggleParking(this)">34</div>
+            <div class="parking-space" onclick="toggleParking(this)">35</div>
+            <div class="parking-space" onclick="toggleParking(this)">36</div>
+            <div class="road"></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section">
+            <div class="road"></div>
+            <div class="parking-space" onclick="toggleParking(this)">37</div>
+            <div class="parking-space" onclick="toggleParking(this)">38</div>
+            <div class="parking-space" onclick="toggleParking(this)">39</div>
+            <div class="parking-space" onclick="toggleParking(this)">40</div>
+            <div class="parking-space" onclick="toggleParking(this)">41</div>
+            <div class="parking-space" onclick="toggleParking(this)">42</div>
+            <div class="road"></div>
+        </div>
+        <div class="section">
+            <div class="road"></div>
+            <div class="parking-space" onclick="toggleParking(this)">43</div>
+            <div class="parking-space" onclick="toggleParking(this)">44</div>
+            <div class="parking-space" onclick="toggleParking(this)">45</div>
+            <div class="parking-space" onclick="toggleParking(this)">46</div>
+            <div class="parking-space" onclick="toggleParking(this)">47</div>
+            <div class="parking-space" onclick="toggleParking(this)">48</div>
+            <div class="road"></div>
+        </div>
+        <div class="section">
+            <div class="road"></div>
+            <div class="parking-space" onclick="toggleParking(this)">49</div>
+            <div class="parking-space" onclick="toggleParking(this)">50</div>
+            <div class="parking-space" onclick="toggleParking(this)">51</div>
+            <div class="parking-space" onclick="toggleParking(this)">52</div>
+            <div class="parking-space" onclick="toggleParking(this)">53</div>
+            <div class="parking-space" onclick="toggleParking(this)">54</div>
+            <div class="road"></div>
+        </div>
+            
+        </section>
+
+    </div>
+
+    <script>
+        function toggleParking(element) {
+            const parkingNumber = element.innerText;
+            const isParked = element.classList.toggle('parked');
+            const message = isParked ? `Parking space ${parkingNumber} reserved for you.` : `Parking space ${parkingNumber} released.`;
+            alert(message);
+        }
+    </script>
+     <script>
+        function toggleParking(element) {
+            const parkingNumber = element.innerText;
+            if (parkingNumber === 'Entry' || parkingNumber === 'Exit') {
+                return; // Ignore Entry and Exit points
+            }
+            
+            const isParked = element.classList.toggle('parked');
+            const action = isParked ? 'Parked' : 'Released';
+            const message = `${action} at Parking space ${parkingNumber}.`;
+
+            if (action === 'Parked') {
+                element.style.backgroundColor = '#ff9999'; // Change color for parked slots
+                alert(message + ' Use the green line to enter.');
+            } else {
+                element.style.backgroundColor = '#eee'; // Reset color for released slots
+                alert(message + ' Follow the red line to exit.');
+            }
+        }
+    </script>
+
+</body>
+</html>
